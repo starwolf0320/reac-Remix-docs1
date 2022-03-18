@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {
   Links,
   LiveReload,
@@ -7,12 +8,34 @@ import {
   ScrollRestoration,
 } from "remix";
 import type { MetaFunction } from "remix";
+import type { Socket } from "socket.io-client";
+import io from "socket.io-client";
+import { SocketProvider } from "~/contexts/socket";
 
 export const meta: MetaFunction = () => {
   return { title: "Remix App" };
 };
 
 export default function App() {
+  const [socket, setSocket] = useState<Socket>();
+
+  useEffect(() => {
+    const socket = io();
+    setSocket(socket);
+    return () => {
+      socket.close();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!socket) return;
+    socket.on("confirmation", (data) => {
+      console.log(data);
+    });
+  }, [socket]);
+
+  console.log("Hello");
+
   return (
     <html lang="en">
       <head>
@@ -22,7 +45,9 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
+        <SocketProvider socket={socket}>
+          <Outlet />
+        </SocketProvider>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
