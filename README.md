@@ -10,12 +10,6 @@ From your terminal:
 npm run dev
 ```
 
-AND
-
-```sh
-npm run dev:server
-```
-
 This starts your app in development mode, rebuilding assets on file changes.
 
 ## Deployment

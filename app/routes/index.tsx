@@ -1,7 +1,14 @@
+import { Switch, useMantineColorScheme } from "@mantine/core";
+
 export default function Index() {
+  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+  const dark = colorScheme === "dark";
+
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
-      <h1>Welcome to Remix! </h1>
-    </div>
+    <Switch
+      color={dark ? "yellow" : "blue"}
+      label="Dark theme"
+      onClick={() => toggleColorScheme()}
+    />
   );
 }
