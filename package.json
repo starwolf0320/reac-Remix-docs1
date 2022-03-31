@@ -12,9 +12,9 @@
     "postinstall": "remix setup node"
   },
   "dependencies": {
-    "@mantine/core": "^4.0.7",
-    "@mantine/hooks": "^4.0.7",
-    "@mantine/ssr": "^4.0.7",
+    "@mantine/core": "^4.1.0",
+    "@mantine/hooks": "^4.1.0",
+    "@mantine/ssr": "^4.1.0",
     "@remix-run/express": "^1.3.1",
     "@remix-run/react": "^1.2.3",
     "@remix-run/serve": "^1.2.3",
@@ -23,6 +23,7 @@
     "ioredis": "^4.28.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-router-dom": "^6.2.2",
     "remix": "^1.2.3",
     "socket.io": "^4.4.1",
     "socket.io-client": "^4.4.1"
