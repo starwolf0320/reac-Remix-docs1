@@ -43,11 +43,11 @@ export default function Layout(props: LayoutProps) {
           width={{ sm: 200, lg: 300 }}
         >
           <Link to="/">Home</Link>
-          <Link to="/login">Sign In</Link>
+          <Link to="/queue">Queue</Link>
         </Navbar>
       }
       aside={
-        <MediaQuery smallerThan="sm" styles={{ display: "none" }}>
+        <MediaQuery smallerThan="md" styles={{ display: "none" }}>
           <Aside p="md" hiddenBreakpoint="sm" width={{ sm: 200, lg: 300 }}>
             <Text>Application sidebar</Text>
           </Aside>

@@ -11,4 +11,6 @@ export const queue = Queue<QueueData>(EMAIL_JOB_QUEUE, async (job) => {
   console.log(`Sending email to ${job.data.emailAddress}`);
 
   console.log(`Email sent to ${job.data.emailAddress}`);
+
+  await new Promise((resolve) => setTimeout(resolve, 20000));
 });
