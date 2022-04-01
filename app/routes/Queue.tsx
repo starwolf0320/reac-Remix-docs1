@@ -11,6 +11,7 @@ import {
 } from "@mantine/core";
 import { At } from "tabler-icons-react";
 import { AlertCircle } from "tabler-icons-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 import { EMAIL_JOB_QUEUE } from "~/constants";
 import { queue } from "~/queues/email";
@@ -79,15 +80,26 @@ export default function Queue() {
   return (
     <Form method="post">
       <h2>Send an email</h2>
-      {actionMessage && (
-        <Alert
-          icon={<AlertCircle size={16} />}
-          color={success ? "blue" : "red"}
-          className={classes.alert}
-        >
-          {message}
-        </Alert>
-      )}
+      <div style={{ height: 80 }}>
+        <AnimatePresence>
+          {actionMessage && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <Alert
+                icon={<AlertCircle size={16} />}
+                color={success ? "blue" : "red"}
+                className={classes.alert}
+              >
+                {message}
+              </Alert>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
       <InputWrapper
         id="email"
         required
