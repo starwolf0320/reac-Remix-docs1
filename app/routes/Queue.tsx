@@ -15,7 +15,7 @@ import { AlertCircle } from "tabler-icons-react";
 import { EMAIL_JOB_QUEUE } from "~/constants";
 import { queue } from "~/queues/email";
 
-interface JSON_RESPONSE {
+interface QUEUE_RESPONSE {
   success: boolean;
   message: string;
 }
@@ -68,7 +68,7 @@ const useStyles = createStyles((theme, _params, getRef) => ({
 }));
 
 export default function Queue() {
-  const actionMessage = useActionData<JSON_RESPONSE>();
+  const actionMessage = useActionData<QUEUE_RESPONSE>();
   const transition = useTransition();
   const { classes } = useStyles();
   const [email, setEmail] = useState("");

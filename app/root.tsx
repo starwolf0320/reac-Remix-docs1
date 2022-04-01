@@ -25,7 +25,7 @@ function Document({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="icon" href="/favicon.ico" type="image/ico" />
         <Meta />
         <Links />
       </head>
@@ -92,14 +92,17 @@ function MantineTheme({ children }: { children: React.ReactNode }) {
 }
 
 export function ErrorBoundary({ error }: { error: Error }) {
+  console.error(error);
   return (
-    <Document>
-      <h1>App Error</h1>
-      <pre>{error.message}</pre>
-      <p>
-        Replace this UI with what you want users to see when your app throws
-        uncaught errors.
-      </p>
-    </Document>
+    <html>
+      <head>
+        <title>App Error!</title>
+        <Meta />
+        <Links />
+      </head>
+      <body>
+        <Scripts />
+      </body>
+    </html>
   );
 }
