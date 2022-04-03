@@ -42,20 +42,20 @@ function Document({ children }: { children: React.ReactNode }) {
 export default function App() {
   const [socket, setSocket] = useState<Socket>();
 
-  // useEffect(() => {
-  //   const socket = io();
-  //   setSocket(socket);
-  //   return () => {
-  //     socket.close();
-  //   };
-  // }, []);
+  useEffect(() => {
+    const socket = io();
+    setSocket(socket);
+    return () => {
+      socket.close();
+    };
+  }, []);
 
-  // useEffect(() => {
-  //   if (!socket) return;
-  //   socket.on("confirmation", (data) => {
-  //     console.log(data);
-  //   });
-  // }, [socket]);
+  useEffect(() => {
+    if (!socket) return;
+    socket.on("confirmation", (data) => {
+      console.log(data);
+    });
+  }, [socket]);
 
   return (
     <Document>
